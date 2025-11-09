@@ -107,6 +107,7 @@ The full layout of the processor consists of 3 stages. The fetch stage, the deco
   </figcaption>
 </figure>
 
+The Design was synthesized using the OpenROAD project flow from RTL Code to GDSII Layout. The Klayout view of the final gds file was mapped to the architecture's modules through hierarchical synthesis of the circuit. ASAP7 and SKY130 were the two different technologies used for synthesis
 
 <figure align="center">
   <img src="figures/img2.png" alt="130nm tech" width="600px" style="display: block; margin: 0 auto;">
