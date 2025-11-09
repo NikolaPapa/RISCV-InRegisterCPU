@@ -61,15 +61,15 @@ assign transfer_done = transfer_on ? hready_in : 1'b1;
 always_comb begin
     if (current_addr == 0) begin
         HTRANS = 2'b10;
-        // HWRITE = 0;
+        
     end
     else if (current_addr == 2) begin
         HTRANS = 2'b10;
-        // HWRITE = 1;
+        
     end
     else begin
         HTRANS = 2'b00;
-        // HWRITE = 0;
+        
     end
 end
 
@@ -92,14 +92,6 @@ assign done = current_control[0]; //last bit of the signal
 assign rf_valid_inst_out = id_rf_valid_inst & done & transfer_done; 
 //when the rf stage has control and has completed move control to fetch
 
-// always_ff @( posedge clk ) begin
-//     if (rst) begin
-//         rf_valid_inst_out <=0;
-//     end
-//     else begin
-//         rf_valid_inst_out <= rf_valid_inst;
-//     end
-// end
 
 endmodule
 

@@ -1,0 +1,105 @@
+
+mul_test.elf:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <_start>:
+   0:	00008537          	lui	a0,0x8
+   4:	00050113          	mv	sp,a0
+   8:	0a8000ef          	jal	ra,b0 <main>
+
+0000000c <hang>:
+   c:	0000006f          	j	c <hang>
+
+00000010 <multiply>:
+  10:	fd010113          	addi	sp,sp,-48
+  14:	02812623          	sw	s0,44(sp)
+  18:	03010413          	addi	s0,sp,48
+  1c:	fca42e23          	sw	a0,-36(s0)
+  20:	fcb42c23          	sw	a1,-40(s0)
+  24:	fe042623          	sw	zero,-20(s0)
+  28:	fe042423          	sw	zero,-24(s0)
+  2c:	fd842783          	lw	a5,-40(s0)
+  30:	0407d863          	bgez	a5,80 <multiply+0x70>
+  34:	fd842783          	lw	a5,-40(s0)
+  38:	40f007b3          	neg	a5,a5
+  3c:	fcf42c23          	sw	a5,-40(s0)
+  40:	00100793          	li	a5,1
+  44:	fef42423          	sw	a5,-24(s0)
+  48:	0380006f          	j	80 <multiply+0x70>
+  4c:	fd842783          	lw	a5,-40(s0)
+  50:	0017f793          	andi	a5,a5,1
+  54:	00078a63          	beqz	a5,68 <multiply+0x58>
+  58:	fec42703          	lw	a4,-20(s0)
+  5c:	fdc42783          	lw	a5,-36(s0)
+  60:	00f707b3          	add	a5,a4,a5
+  64:	fef42623          	sw	a5,-20(s0)
+  68:	fdc42783          	lw	a5,-36(s0)
+  6c:	00179793          	slli	a5,a5,0x1
+  70:	fcf42e23          	sw	a5,-36(s0)
+  74:	fd842783          	lw	a5,-40(s0)
+  78:	4017d793          	srai	a5,a5,0x1
+  7c:	fcf42c23          	sw	a5,-40(s0)
+  80:	fd842783          	lw	a5,-40(s0)
+  84:	fcf044e3          	bgtz	a5,4c <multiply+0x3c>
+  88:	fe842783          	lw	a5,-24(s0)
+  8c:	00078863          	beqz	a5,9c <multiply+0x8c>
+  90:	fec42783          	lw	a5,-20(s0)
+  94:	40f007b3          	neg	a5,a5
+  98:	0080006f          	j	a0 <multiply+0x90>
+  9c:	fec42783          	lw	a5,-20(s0)
+  a0:	00078513          	mv	a0,a5
+  a4:	02c12403          	lw	s0,44(sp)
+  a8:	03010113          	addi	sp,sp,48
+  ac:	00008067          	ret
+
+000000b0 <main>:
+  b0:	fd010113          	addi	sp,sp,-48
+  b4:	02112623          	sw	ra,44(sp)
+  b8:	02812423          	sw	s0,40(sp)
+  bc:	03010413          	addi	s0,sp,48
+  c0:	00600793          	li	a5,6
+  c4:	fef42623          	sw	a5,-20(s0)
+  c8:	ffd00793          	li	a5,-3
+  cc:	fef42423          	sw	a5,-24(s0)
+  d0:	fe842583          	lw	a1,-24(s0)
+  d4:	fec42503          	lw	a0,-20(s0)
+  d8:	f39ff0ef          	jal	ra,10 <multiply>
+  dc:	fea42223          	sw	a0,-28(s0)
+  e0:	00c00793          	li	a5,12
+  e4:	fef42623          	sw	a5,-20(s0)
+  e8:	00400793          	li	a5,4
+  ec:	fef42423          	sw	a5,-24(s0)
+  f0:	fe842583          	lw	a1,-24(s0)
+  f4:	fec42503          	lw	a0,-20(s0)
+  f8:	f19ff0ef          	jal	ra,10 <multiply>
+  fc:	fea42023          	sw	a0,-32(s0)
+ 100:	ffd00793          	li	a5,-3
+ 104:	fef42623          	sw	a5,-20(s0)
+ 108:	ffb00793          	li	a5,-5
+ 10c:	fef42423          	sw	a5,-24(s0)
+ 110:	fe842583          	lw	a1,-24(s0)
+ 114:	fec42503          	lw	a0,-20(s0)
+ 118:	ef9ff0ef          	jal	ra,10 <multiply>
+ 11c:	fca42e23          	sw	a0,-36(s0)
+ 120:	fe042623          	sw	zero,-20(s0)
+ 124:	ffb00793          	li	a5,-5
+ 128:	fef42423          	sw	a5,-24(s0)
+ 12c:	fe842583          	lw	a1,-24(s0)
+ 130:	fec42503          	lw	a0,-20(s0)
+ 134:	eddff0ef          	jal	ra,10 <multiply>
+ 138:	fca42c23          	sw	a0,-40(s0)
+ 13c:	00300793          	li	a5,3
+ 140:	fef42623          	sw	a5,-20(s0)
+ 144:	fe042423          	sw	zero,-24(s0)
+ 148:	fe842583          	lw	a1,-24(s0)
+ 14c:	fec42503          	lw	a0,-20(s0)
+ 150:	ec1ff0ef          	jal	ra,10 <multiply>
+ 154:	fca42a23          	sw	a0,-44(s0)
+ 158:	00000793          	li	a5,0
+ 15c:	00078513          	mv	a0,a5
+ 160:	02c12083          	lw	ra,44(sp)
+ 164:	02812403          	lw	s0,40(sp)
+ 168:	03010113          	addi	sp,sp,48
+ 16c:	00008067          	ret
