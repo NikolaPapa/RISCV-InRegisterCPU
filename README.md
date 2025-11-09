@@ -3,6 +3,7 @@
 This repository contains the implementation to the Thesis Project: "RISC-V Processors with In Register File Processing".
 
 ## Abstract
+
 This thesis examines an innovative RISC-V processor architecture based on in-register file computing, aiming to reduce area and energy requirements for resource-constrained
 applications. The main contribution of this work is the development of the ACE-RF
 (Arithmetic Capable Enhanced-Register File), a register file that incorporates bit-level
@@ -16,7 +17,9 @@ indicate that the proposed solution is suitable for ultra-low-cost, high energy-
 systems, while offering functionality comparable to other conventional approaches. 
 
 ## In Register Processing
+
 The proposed Architecture is based upon a simple but ambitious question: "How can we design a fully functioning core for the RISC-V Base ISA using sets of a D Flip-Flop and a Full Adder?". The answer can be better explained in a bottom-up approach. The flip flop is connected to the Adder through two data ports. First a read port that is used to get values from input or the registered bit and a write port that is used to get the result or to register data in the flip-flop. Tri-state buffers are used to control the flow of data in the ports. In that way a new register cell is formed that is capable of simple addition. Such cells can be connected serially to form a full 32-bit register.
+
 <figure align="center">
   <img src="figures/local_alu.jpg" alt="Local Alu Concept" width="900px" style="display: block; margin: 0 auto;">
   
@@ -26,6 +29,7 @@ The proposed Architecture is based upon a simple but ambitious question: "How ca
 </figure>
 
 Provided that we can extend the capabilities of the Full Adder we can clearly see why connecting those cells in that fashion is usefull. In a higher level of abstraction we have constructed a register that includes a local ALU and is fully capable of computing and saving information. The extension needed in the Full Adder circuit is shown below.
+
 <figure align="center">
   <img src="figures/EXT_FA.jpg" alt="The Extended Full Adder " width="900px" style="display: block; margin: 0 auto;">
   
@@ -33,9 +37,11 @@ Provided that we can extend the capabilities of the Full Adder we can clearly se
     <b>Figure 2:</b> The Extended Full Adder.
   </figcaption>
 </figure>
+
 The Logic XOR and AND operation of the inputs already takes place in the basic Adder circuit so we only need to add the OR operation and we choose the output according to the op_fa signal. This signal as well as all the control signals of the tristate buffers and the write enable signals of the registers are all in one hot encoding in order to avoid bus contention problems. Other operations such as SUB or Branches are executed by re-using this hardware and they require more than one cycle to complete. These simple logic operations are enough to make a functioning processor from the Register-ALU pair. 
 
 ## The New Organization of the Processor
+
 <figure align="center">
   <img src="figures/img1.jpg" alt="An ADD instruction executed " width="900px" style="display: block; margin: 0 auto;">
   
@@ -51,7 +57,9 @@ The ports of each register are connected so the data can flow in both ports thro
 A suited communication protocol for this project was AMBA AHB-Lite a widely used protocol in industry. The basic working principle of the AHB communication is that the transfers are divided in two phases. The Address phase that the master informs the subordinate for the corresponding address of memory and the Data phase in which the information is passed through. The first phase needs a simple addition to be done in register as we already discussed and the data phase requires only controlling the right bus on the datapath either to send data to the memory or load data back. 
 
 ## ACE-RF
+
 In that way register cells with FAs create register rows with local ALUs and register rows stacked upon each other create a highly regular register array that is capable of computing most of the instructions in RV32I set while being fully synthesizable from only digital cells.
+
 <figure align="center">
   <img src="figures/ACE_RF2.jpg" alt="Tristate ACE-RF " width="900px" style="display: block; margin: 0 auto;">
   
@@ -59,7 +67,9 @@ In that way register cells with FAs create register rows with local ALUs and reg
     <b>Figure 4:</b> The design of the ACE-RF.
   </figcaption>
 </figure>
+
 Although the use of tri-state buffers was a prefered starting point to explain the working principle of in-register computing it was not included in the final implementation of the ACE-RF in order not to have any problems with synthesis and the FPGA implementation. We substitute the bidirectional buses with one-directional nets. One that goes upward in the array and one downwards for each bus. That concludes the design of the ACE-RF unit.
+
 <figure align="center">
   <img src="figures/ACE_RF1.jpg" alt="final ACE-RF " width="900px" style="display: block; margin: 0 auto;">
   
@@ -69,6 +79,7 @@ Although the use of tri-state buffers was a prefered starting point to explain t
 </figure>
 
 ## Architecture Overview
+
 <figure align="center">
   <img src="figures/overall_layout.jpg" alt="Architectural Diagram of the ACE-RF Core" width="900px" style="display: block; margin: 0 auto;">
   
@@ -109,7 +120,7 @@ The full layout of the processor consists of 3 stages. The fetch stage, the deco
 
 <div style="clear: both;"></div>
 
-
+### Comparisons
 <center>
 
 | Core | Max Place Density | Max Core Utilization | Total Area (μm^2)|
