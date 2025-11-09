@@ -102,14 +102,14 @@ The full layout of the processor consists of 3 stages. The fetch stage, the deco
 
 <div style="display: flex; justify-content: space-around; width: 100%;">
   
-  <figure style="width: 48%;">
+  <figure style="width: 45%;">
     <img src="figures/img1.png" alt="7nm tech" style="width: 100%; height: auto;">
     <figcaption align="center">
       <b>Figure 8:</b> Physical layout of the design in 7nm.
     </figcaption>
   </figure>
 
-  <figure style="width: 48%;">
+  <figure style="width: 45%;">
     <img src="figures/img2.png" alt="130nm tech" style="width: 100%; height: auto;">
     <figcaption align="center">
       <b>Figure 9:</b> Physical layout of the design in 130nm.
