@@ -109,6 +109,7 @@ The full layout of the processor consists of 3 stages. The fetch stage, the deco
 
 <div style="clear: both;"></div>
 
+
 <center>
 
 | Core | Max Place Density | Max Core Utilization | Total Area (μm^2)|
@@ -136,7 +137,7 @@ As seen in both 7nm and 130nm technologies the proposed design shows promising r
 
 <b>Author:</b> Nikolaos Papaioannou at ECE Dept. DUTH
 
-<b>Supervisor:</b> Georgios Dimitrakopoulos Professor at Integrated Circuits Lab @ DUTH
+<b>Supervisor:</b> Prof. Georgios Dimitrakopoulos at Integrated Circuits Lab @ DUTH
 <!-- 
 ## FPGA Validation Prototype
 After the verification of the Processor behavior in ModelSim testbenches of simple programs where the execution was cheched cycle after cycle a next step is to validate and demonstrate the design through a FPGA platform. The following simple system integrates the CPU with memory modules and IPs from the IP catalog of Xilinx Vivado. The system aims to show an animation through a VGA screen controlled by the processor. 
