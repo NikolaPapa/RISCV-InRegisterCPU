@@ -118,7 +118,7 @@ The full layout of the processor consists of 3 stages. The fetch stage, the deco
 
 </div>
 
-<div style="clear: both;"></div>
+<!-- <div style="clear: both;"></div> -->
 
 ### Comparisons
 <center>
