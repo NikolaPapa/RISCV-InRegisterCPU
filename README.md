@@ -100,19 +100,20 @@ The full layout of the processor consists of 3 stages. The fetch stage, the deco
 
 ## Physical Layout using OpenROAD
 
-  <figure align="center">
-    <img src="figures/img1.png" alt="7nm tech" width="600px" style="display: block; margin: 0 auto;">
-    <figcaption align="center">
-      <b>Figure 8:</b> Physical layout of the design in 7nm.
-    </figcaption>
-  </figure>
+<figure align="center">
+  <img src="figures/img1.png" alt="7nm tech" width="600px" style="display: block; margin: 0 auto;">
+  <figcaption>
+    <b>Figure 8:</b> Physical layout of the design in 7nm.
+  </figcaption>
+</figure>
 
-  <figure align="center">
-    <img src="figures/img2.png" alt="130nm tech" width="600px" style="display: block; margin: 0 auto;">
-    <figcaption align="center">
-      <b>Figure 9:</b> Physical layout of the design in 130nm.
-    </figcaption>
-  </figure>
+
+<figure align="center">
+  <img src="figures/img2.png" alt="130nm tech" width="600px" style="display: block; margin: 0 auto;">
+  <figcaption>
+    <b>Figure 9:</b> Physical layout of the design in 130nm.
+  </figcaption>
+</figure>
 
 ### Comparisons
 <center>
