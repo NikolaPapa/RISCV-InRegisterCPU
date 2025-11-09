@@ -129,8 +129,14 @@ The full layout of the processor consists of 3 stages. The fetch stage, the deco
 <b>Table 2:</b> Area Comparison in 130nm.
 </center>
 
-Total Area comparisons were made with IBEX from low-RISC a well established open-source CPU core that aims in low power and low cost applications. IBEX is very extensively verified and has seen multiple tape-outs. 
+Total Area comparisons were made with IBEX from low-RISC a well established open-source CPU core that aims in low power and low cost applications. IBEX is very extensively verified and has seen multiple tape-outs so it serves as a solid basis for comparison. 
 As seen in both 7nm and 130nm technologies the proposed design shows promising results in total area of the chip.
+
+## Credits
+
+<b>Author:</b> Nikolaos Papaioannou at ECE Dept. DUTH
+
+<b>Supervisor:</b> Georgios Dimitrakopoulos Professor at Integrated Circuits Lab @ DUTH
 <!-- 
 ## FPGA Validation Prototype
 After the verification of the Processor behavior in ModelSim testbenches of simple programs where the execution was cheched cycle after cycle a next step is to validate and demonstrate the design through a FPGA platform. The following simple system integrates the CPU with memory modules and IPs from the IP catalog of Xilinx Vivado. The system aims to show an animation through a VGA screen controlled by the processor. 
